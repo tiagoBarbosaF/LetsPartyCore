@@ -4,8 +4,47 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="container justify-content-center">
+    <header id="headerIndex">
+        <p class="lead">Book your team's event here, have fun with everyone!</p>
+        <p>Register your Team, events and when they will have fun, just click on the options below!</p>
+        <hr class="my-4">
+    </header>
 
+    <div class="card-deck justify-content-center">
+        <div class="row">
+            <div class="card text-center" style="width: 18rem;">
+                <img src="../img/teams.png" class="card-img-top" alt="Teams">
+                <div class="card-body">
+                    <h5 class="card-title">Teams</h5>
+                    <p class="card-text">Register your team</p><br />
+                    <a asp-area="" asp-page="/Teams/Index" class="btn btn-block btn-outline-info">Teams</a>
+                </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <img src="../img/user.png" class="card-img-top" alt="Members">
+                <div class="card-body">
+                    <h5 class="card-title">Members</h5>
+                    <p class="card-text">Register members of your team</p>
+                    <a asp-area="" asp-page="/Users/Index" class="btn btn-block btn-outline-info">Members</a>
+                </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <img src="../img/calendar.png" class="card-img-top" alt="Calendars">
+                <div class="card-body">
+                    <h5 class="card-title">Calendar</h5>
+                    <p class="card-text">Create calendars for your team</p>
+                    <a asp-area="" asp-page="/Calendars/Index" class="btn btn-block btn-outline-info">Calendars</a>
+                </div>
+            </div>
+            <div class="card text-center" style="width: 18rem;">
+                <img src="../img/event.png" class="card-img-top" alt="Events">
+                <div class="card-body">
+                    <h5 class="card-title">Events</h5>
+                    <p class="card-text">Create events for your team</p>
+                    <a asp-area="" asp-page="/Events/Index" class="btn btn-block btn-outline-info">Events</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

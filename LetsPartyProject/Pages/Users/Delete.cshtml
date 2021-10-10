@@ -48,6 +48,18 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.User.Email)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.Confirm)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.Confirm)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.Team)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.Team.TeamName)
+        </dd>
     </dl>
     
     <form method="post">

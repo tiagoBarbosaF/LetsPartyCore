@@ -3,13 +3,16 @@ using LetsPartyProject.Models;
 
 namespace RazorPagesUser.Data
 {
-    public class LetsPartyContext : DbContext
+  public class LetsPartyContext : DbContext
+  {
+    public LetsPartyContext(DbContextOptions<LetsPartyContext> options)
+        : base(options)
     {
-        public LetsPartyContext(DbContextOptions<LetsPartyContext> options)
-            : base(options)
-        {
-        }
-
-        public DbSet<User> User { get; set; }
     }
+
+    public DbSet<User> Users { get; set; }
+    public DbSet<Team> Teams { get; set; }
+    public DbSet<Event> Events { get; set; }
+    public DbSet<Calendar> Calendars { get; set; }
+  }
 }

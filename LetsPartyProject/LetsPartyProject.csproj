@@ -15,6 +15,7 @@
 		<None Remove="Pages\Events\" />
 		<None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
 		<None Remove="Microsoft.EntityFrameworkCore.Tools" />
+		<None Remove="LetsParty.db" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Models\" />

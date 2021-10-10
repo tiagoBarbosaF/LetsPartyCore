@@ -1,22 +1,36 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace LetsPartyProject.Models
 {
-    public class User
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Nickname { get; set; }
-        public string Sector { get; set; }
-        public int DDD { get; set; }
+  public class User
+  {
+    public int Id { get; set; }
 
-        [DataType(DataType.PhoneNumber)]
-        public string Phone { get; set; }
+    [Required(ErrorMessage = "Este campo é obrigatório")]
+    [MaxLength(60, ErrorMessage = "Este campo deve conter entre 3 e 60 caracteres")]
+    [MinLength(2, ErrorMessage = "Este campo deve conter entre 3 e 60 caracteres")]
+    public string Name { get; set; }
 
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
+    [MinLength(2, ErrorMessage = "Este campo deve conter entre 3 e 60 caracteres")]
+    public string Nickname { get; set; }
 
-        public Team Team { get; set; }
-    }
+    [Required]
+    [MaxLength(60, ErrorMessage = "Este campo deve conter entre 3 e 60 caracteres")]
+    [MinLength(2, ErrorMessage = "Este campo deve conter entre 3 e 60 caracteres")]
+    public string Sector { get; set; }
+    public int DDD { get; set; }
+
+    [DataType(DataType.PhoneNumber)]
+    public string Phone { get; set; }
+
+    [Required]
+    [DataType(DataType.EmailAddress)]
+    public string Email { get; set; }
+    public int TeamId { get; set; }
+    public string Confirm { get; set; }
+
+    public Team Team { get; set; }
+  }
 }
 

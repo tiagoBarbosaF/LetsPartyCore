@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using LetsPartyProject.Models;
 using RazorPagesUser.Data;
 
-namespace LetsPartyProject.Pages.Users
+namespace LetsPartyProject.Pages.Events
 {
   public class EditModel : PageModel
   {
@@ -21,7 +21,7 @@ namespace LetsPartyProject.Pages.Users
     }
 
     [BindProperty]
-    public new User User { get; set; }
+    public Event Event { get; set; }
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
@@ -30,13 +30,15 @@ namespace LetsPartyProject.Pages.Users
         return NotFound();
       }
 
-      User = await _context.Users
-          .Include(u => u.Team).FirstOrDefaultAsync(m => m.Id == id);
+      Event = await _context.Events
+          .Include(e => e.Calendar)
+          .Include(e => e.Team).FirstOrDefaultAsync(m => m.Id == id);
 
-      if (User == null)
+      if (Event == null)
       {
         return NotFound();
       }
+      ViewData["CalendarId"] = new SelectList(_context.Calendars, "Id", "CalendarName");
       ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "TeamName");
       return Page();
     }
@@ -50,7 +52,7 @@ namespace LetsPartyProject.Pages.Users
         return Page();
       }
 
-      _context.Attach(User).State = EntityState.Modified;
+      _context.Attach(Event).State = EntityState.Modified;
 
       try
       {
@@ -58,7 +60,7 @@ namespace LetsPartyProject.Pages.Users
       }
       catch (DbUpdateConcurrencyException)
       {
-        if (!UserExists(User.Id))
+        if (!EventExists(Event.Id))
         {
           return NotFound();
         }
@@ -71,9 +73,9 @@ namespace LetsPartyProject.Pages.Users
       return RedirectToPage("./Index");
     }
 
-    private bool UserExists(int id)
+    private bool EventExists(int id)
     {
-      return _context.Users.Any(e => e.Id == id);
+      return _context.Events.Any(e => e.Id == id);
     }
   }
 }

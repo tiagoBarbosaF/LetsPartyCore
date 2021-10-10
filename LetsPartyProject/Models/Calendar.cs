@@ -1,13 +1,20 @@
-﻿namespace LetsPartyProject.Models
-{
-    public class Calendar
-    {
-        public int Id { get; set; }
-        public string CalendarName { get; set; }
-        public int Day { get; set; }
-        public int TeamId { get; set; }
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
-        public Team Team { get; set; }
-    }
+namespace LetsPartyProject.Models
+{
+  public class Calendar
+  {
+    public int Id { get; set; }
+
+    [Required]
+    [DisplayName("Calendar Name")]
+    public string CalendarName { get; set; }
+    public int TeamId { get; set; }
+
+    public Team Team { get; set; }
+    public ICollection<Event> Events { get; set; }
+  }
 }
 

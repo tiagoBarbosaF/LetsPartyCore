@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using LetsPartyProject.Models;
 using RazorPagesUser.Data;
 
-namespace LetsPartyProject.Pages.Users
+namespace LetsPartyProject.Pages.Events
 {
   public class DeleteModel : PageModel
   {
@@ -20,7 +20,7 @@ namespace LetsPartyProject.Pages.Users
     }
 
     [BindProperty]
-    public new User User { get; set; }
+    public Event Event { get; set; }
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
@@ -29,10 +29,11 @@ namespace LetsPartyProject.Pages.Users
         return NotFound();
       }
 
-      User = await _context.Users
-          .Include(u => u.Team).FirstOrDefaultAsync(m => m.Id == id);
+      Event = await _context.Events
+          .Include(e => e.Calendar)
+          .Include(e => e.Team).FirstOrDefaultAsync(m => m.Id == id);
 
-      if (User == null)
+      if (Event == null)
       {
         return NotFound();
       }
@@ -46,11 +47,11 @@ namespace LetsPartyProject.Pages.Users
         return NotFound();
       }
 
-      User = await _context.Users.FindAsync(id);
+      Event = await _context.Events.FindAsync(id);
 
-      if (User != null)
+      if (Event != null)
       {
-        _context.Users.Remove(User);
+        _context.Events.Remove(Event);
         await _context.SaveChangesAsync();
       }
 

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using LetsPartyProject.Models;
 using RazorPagesUser.Data;
 
-namespace LetsPartyProject.Pages.Users
+namespace LetsPartyProject.Pages.Events
 {
   public class DetailsModel : PageModel
   {
@@ -19,7 +19,7 @@ namespace LetsPartyProject.Pages.Users
       _context = context;
     }
 
-    public new User User { get; set; }
+    public Event Event { get; set; }
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
@@ -28,10 +28,11 @@ namespace LetsPartyProject.Pages.Users
         return NotFound();
       }
 
-      User = await _context.Users
-          .Include(u => u.Team).FirstOrDefaultAsync(m => m.Id == id);
+      Event = await _context.Events
+          .Include(e => e.Calendar)
+          .Include(e => e.Team).FirstOrDefaultAsync(m => m.Id == id);
 
-      if (User == null)
+      if (Event == null)
       {
         return NotFound();
       }
