@@ -31,13 +31,12 @@ O layout da aplicação é uma criação própria, tentei focar na usabilidade, 
 #### Etapas para realizar o teste
 
 - Faça a clonagem deste repositório
-- Abra a IDE que achar mais confortável para edição do código (Visual Studio, VS Code, RIDER etc).
 - No terminal integrado da IDE verifique se está com o SDK do .Net instalado usando o comando abaixo:
   ```C#
   dotnet --version
   ```
 - Se o comando retornar algum resultado como **dotnet v5.#.#** poderemos continuar o processo de testes, caso dê algum erro, recomendo que baixe o SDK do .Net neste link https://dotnet.microsoft.com/download
-- Com o dotnet SDK instalado, novamente no Terminal integrado insira o código abaixo para ativar a API:
+- Com o dotnet SDK instalado, novamente no Terminal insira o código abaixo para rodar a aplicação:
   ```C#
   dotnet watch run
   ```
