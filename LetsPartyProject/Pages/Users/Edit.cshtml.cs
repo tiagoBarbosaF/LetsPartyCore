@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +11,9 @@ namespace LetsPartyProject.Pages.Users
 {
   public class EditModel : PageModel
   {
-    private readonly RazorPagesUser.Data.LetsPartyContext _context;
+    private readonly LetsPartyContext _context;
 
-    public EditModel(RazorPagesUser.Data.LetsPartyContext context)
+    public EditModel(LetsPartyContext context)
     {
       _context = context;
     }
@@ -41,8 +39,6 @@ namespace LetsPartyProject.Pages.Users
       return Page();
     }
 
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see https://aka.ms/RazorPagesCRUD.
     public async Task<IActionResult> OnPostAsync()
     {
       if (!ModelState.IsValid)

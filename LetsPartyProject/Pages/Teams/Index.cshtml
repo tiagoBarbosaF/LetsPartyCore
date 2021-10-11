@@ -3,52 +3,57 @@
 
 @{ ViewData["Title"] = "Teams"; }
 
-<header class="container mb-4">
-    <div class="row align-middle">
-        <div class="col-10">
-            <h1>Teams</h1>
-        </div>
-        <div class="col-2">
-            <a asp-page="Create" class="mt-2 btn btn-block btn-outline-info">Create New</a>
-        </div>
-    </div>
-</header>
-
-<section class="container">
-    <table class="table table-responsive-lg">
-        <thead class="thead-dark text-center">
-            <tr>
-                <th class="col-8">
-                    @Html.DisplayNameFor(model => model.Team[0].TeamName)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody class="text-center align-middle">
-            @foreach (var item in Model.Team)
-            {
-<tr>
-    <td class="col-8">
-        @Html.DisplayFor(modelItem => item.TeamName)
-    </td>
-    <td class="col-4">
-        <div class="btn-group dropleft">
-            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                actions
-            </button>
-            <div class="dropdown-menu" x-placement="left-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-2px, 0px, 0px);">
-                <a class="dropdown-item" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" asp-page="./Details" asp-route-id="@item.Id">Details</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+<section id="sectionTeams" class="container">
+    <header class="container mb-4">
+        <div id="headerIndexPages" class="row align-middle">
+            <div class="col-9">
+                <h1>Teams</h1>
+            </div>
+            <div class="col-3">
+                <a asp-page="Create" class="btn btn-block btn-outline-info">Create New</a>
             </div>
         </div>
-        @*<a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>*@
-    </td>
-</tr>}
-        </tbody>
-    </table>
+    </header>
+
+    <div id="tableTeams" class="container">
+        <table class="table table-responsive-lg">
+            <thead class="text-center">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Team[0].TeamName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Team[0].QuantityMembers)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="text-center align-middle">
+                @foreach (var item in Model.Team)
+                {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantityMembers)
+        </td>
+        <td>
+            <div class="btn-group dropleft">
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    actions
+                </button>
+                <div class="dropdown-menu" x-placement="left-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-2px, 0px, 0px);">
+                    <a class="dropdown-item" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>}
+            </tbody>
+        </table>
+    </div>
 </section>

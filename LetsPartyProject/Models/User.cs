@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace LetsPartyProject.Models
@@ -27,6 +27,9 @@ namespace LetsPartyProject.Models
     [Required]
     [DataType(DataType.EmailAddress)]
     public string Email { get; set; }
+
+    [Required]
+    [DisplayName("Team")]
     public int TeamId { get; set; }
     public string Confirm { get; set; }
 

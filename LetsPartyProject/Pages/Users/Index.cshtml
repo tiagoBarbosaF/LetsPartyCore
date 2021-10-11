@@ -1,78 +1,95 @@
 @page
 @model LetsPartyProject.Pages.Users.IndexModel
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Members"; }
 
-<h1>Index</h1>
+<section id="sectionTeams" class="container">
+    <header class="container mb-4">
+        <div id="headerIndexPages" class="row align-middle">
+            <div class="col-9">
+                <h1>Members</h1>
+            </div>
+            <div class="col-3">
+                <a asp-page="Create" class="btn btn-block btn-outline-info">Create New</a>
+            </div>
+        </div>
+    </header>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Nickname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Sector)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].DDD)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Confirm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Team)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.User) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nickname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sector)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DDD)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Confirm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Team.TeamName)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div id="tableTeams" class="container">
+        <table class="table table-responsive-lg">
+            <thead class="text-center">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].Team)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].Nickname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].Sector)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].DDD)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.User[0].Confirm)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="text-center align-middle">
+                @foreach (var item in Model.User)
+                {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.TeamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sector)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DDD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Confirm)
+        </td>
+        <td>
+            <div class="btn-group dropleft">
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    actions
+                </button>
+                <div class="dropdown-menu" x-placement="left-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-2px, 0px, 0px);">
+                    <a class="dropdown-item" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>}
+            </tbody>
+        </table>
+    </div>
+</section>

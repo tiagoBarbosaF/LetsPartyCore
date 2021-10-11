@@ -115,4 +115,36 @@ header {
 
 table {
     font: var(--subtitle-font-size) var(--title-font);
+    border-collapse: collapse;
+}
+
+section {
+    align-items: center;
+}
+
+#tableTeams {
+    border: 1px solid #560bad;
+    border-radius: 5px;
+}
+
+#formPages {
+    border: 1px solid #560bad;
+    border-radius: 5px;
+    font: var(--subtitle-font-size) var(--title-font);
+}
+
+label {
+    font-weight: bold;
+}
+
+section header div div h1 {
+    font-size: 4em;
+}
+
+#headerIndexPages {
+    align-items: center;
+}
+
+dl {
+    align-items: baseline;
 }

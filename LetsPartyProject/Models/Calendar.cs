@@ -11,6 +11,9 @@ namespace LetsPartyProject.Models
     [Required]
     [DisplayName("Calendar Name")]
     public string CalendarName { get; set; }
+
+    [Required]
+    [DisplayName("Team")]
     public int TeamId { get; set; }
 
     public Team Team { get; set; }

@@ -25,7 +25,6 @@ namespace LetsPartyProject.Pages.Users
     [BindProperty]
     public new User User { get; set; }
 
-    // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
     public async Task<IActionResult> OnPostAsync()
     {
       if (!ModelState.IsValid)

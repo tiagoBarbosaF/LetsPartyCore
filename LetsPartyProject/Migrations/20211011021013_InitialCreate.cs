@@ -13,7 +13,8 @@ namespace LetsPartyProject.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    TeamName = table.Column<string>(type: "TEXT", nullable: false)
+                    TeamName = table.Column<string>(type: "TEXT", nullable: false),
+                    QuantityMembers = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,6 +75,8 @@ namespace LetsPartyProject.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     EventName = table.Column<string>(type: "TEXT", nullable: false),
                     EventDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    City = table.Column<string>(type: "TEXT", nullable: true),
+                    TypeEvent = table.Column<string>(type: "TEXT", nullable: false),
                     TeamId = table.Column<int>(type: "INTEGER", nullable: false),
                     CalendarId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
@@ -112,8 +115,7 @@ namespace LetsPartyProject.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Users_TeamId",
                 table: "Users",
-                column: "TeamId",
-                unique: true);
+                column: "TeamId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

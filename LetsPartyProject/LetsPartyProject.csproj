@@ -16,6 +16,7 @@
 		<None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
 		<None Remove="Microsoft.EntityFrameworkCore.Tools" />
 		<None Remove="LetsParty.db" />
+		<None Remove="RestSharp" />
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="Models\" />
@@ -37,5 +38,6 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
+		<PackageReference Include="RestSharp" Version="106.12.0" />
 	</ItemGroup>
 </Project>

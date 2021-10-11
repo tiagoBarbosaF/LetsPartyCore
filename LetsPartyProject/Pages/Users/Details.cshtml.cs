@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,9 +9,9 @@ namespace LetsPartyProject.Pages.Users
 {
   public class DetailsModel : PageModel
   {
-    private readonly RazorPagesUser.Data.LetsPartyContext _context;
+    private readonly LetsPartyContext _context;
 
-    public DetailsModel(RazorPagesUser.Data.LetsPartyContext context)
+    public DetailsModel(LetsPartyContext context)
     {
       _context = context;
     }

@@ -1,54 +1,84 @@
 @page
 @model LetsPartyProject.Pages.Events.IndexModel
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Events"; }
 
-<h1>Index</h1>
+<section id="sectionTeams" class="container">
+    <header class="container mb-4">
+        <div id="headerIndexPages" class="row align-middle">
+            <div class="col-9">
+                <h1>Events</h1>
+            </div>
+            <div class="col-3">
+                <a asp-page="Create" class="btn btn-block btn-outline-info">Create New</a>
+            </div>
+        </div>
+    </header>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Event[0].EventName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Event[0].EventDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Event[0].Team)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Event[0].Calendar)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Event) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Team.TeamName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Calendar.CalendarName)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+    <div id="tableTeams" class="container">
+        <table class="table table-responsive-lg">
+            <thead class="text-center">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Event[0].EventName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Event[0].EventDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Event[0].City)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Event[0].TypeEvent)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Event[0].Team)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Event[0].Calendar)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="text-center align-middle">
+                @foreach (var item in Model.Event)
+                {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeEvent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.TeamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calendar.CalendarName)
+        </td>
+        <td>
+            <div class="btn-group dropleft">
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    actions
+                </button>
+                <div class="dropdown-menu" x-placement="left-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-2px, 0px, 0px);">
+                    <a class="dropdown-item" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </td>
+    </tr>
 }
-    </tbody>
-</table>
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -16,7 +15,18 @@ namespace LetsPartyProject.Models
     [Required]
     [DisplayName("Event date")]
     public DateTime EventDate { get; set; }
+    public string City { get; set; }
+
+    [Required]
+    [DisplayName("Type Event")]
+    public string TypeEvent { get; set; }
+
+    [Required]
+    [DisplayName("Team")]
     public int TeamId { get; set; }
+
+    [Required]
+    [DisplayName("Calendar")]
     public int CalendarId { get; set; }
 
     public Team Team { get; set; }

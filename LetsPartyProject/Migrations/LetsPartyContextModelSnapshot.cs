@@ -45,6 +45,9 @@ namespace LetsPartyProject.Migrations
                     b.Property<int>("CalendarId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("City")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("EventDate")
                         .HasColumnType("TEXT");
 
@@ -54,6 +57,10 @@ namespace LetsPartyProject.Migrations
 
                     b.Property<int>("TeamId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("TypeEvent")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
@@ -68,6 +75,9 @@ namespace LetsPartyProject.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("QuantityMembers")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("TeamName")
@@ -116,8 +126,7 @@ namespace LetsPartyProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TeamId")
-                        .IsUnique();
+                    b.HasIndex("TeamId");
 
                     b.ToTable("Users");
                 });
@@ -155,8 +164,8 @@ namespace LetsPartyProject.Migrations
             modelBuilder.Entity("LetsPartyProject.Models.User", b =>
                 {
                     b.HasOne("LetsPartyProject.Models.Team", "Team")
-                        .WithOne("User")
-                        .HasForeignKey("LetsPartyProject.Models.User", "TeamId")
+                        .WithMany("Users")
+                        .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -174,7 +183,7 @@ namespace LetsPartyProject.Migrations
 
                     b.Navigation("Events");
 
-                    b.Navigation("User");
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

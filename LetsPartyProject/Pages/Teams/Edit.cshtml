@@ -1,34 +1,42 @@
 @page
 @model LetsPartyProject.Pages.Teams.EditModel
 
-@{
-    ViewData["Title"] = "Edit";
-}
+@{ ViewData["Title"] = "Team Edit"; }
 
-<h1>Edit</h1>
-
-<h4>Team</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Team.Id" />
-            <div class="form-group">
-                <label asp-for="Team.TeamName" class="control-label"></label>
-                <input asp-for="Team.TeamName" class="form-control" />
-                <span asp-validation-for="Team.TeamName" class="text-danger"></span>
+<section id="sectionTeams" class="container">
+    <header class="container mb-4">
+        <div id="headerIndexPages" class="row align-middle">
+            <div class="col-9">
+                <h1>Team Edit</h1>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+            <hr />
+        </div>
+    </header>
+    <div id="formPages" class="row p-4">
+        <div class="col">
+            <form method="post">
+                <div class="form-row">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Team.Id" />
+                    <div class="form-group col">
+                        <label asp-for="Team.TeamName" class="control-label"></label>
+                        <input asp-for="Team.TeamName" class="form-control" />
+                        <span asp-validation-for="Team.TeamName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col">
+                        <label asp-for="Team.QuantityMembers" class="control-label"></label>
+                        <input asp-for="Team.QuantityMembers" class="form-control" />
+                        <span asp-validation-for="Team.QuantityMembers" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group pt-4">
+                    <input type="submit" value="Save" class="btn btn-block btn-outline-success" />
+                    <a class="btn btn-block btn-outline-info" asp-page="Index">Back to List</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
+</section>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
