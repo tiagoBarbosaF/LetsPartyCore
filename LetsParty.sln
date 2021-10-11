@@ -22,4 +22,36 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E623506C-A2B0-4484-980D-FF9F6D49A43C}
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.FileWidth = 80
+		$1.TabWidth = 2
+		$1.TabsToSpaces = True
+		$1.IndentWidth = 2
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.scope = text/x-csharp
+		$0.TextStylePolicy = $3
+		$3.FileWidth = 80
+		$3.TabsToSpaces = True
+		$3.scope = text/plain
+		$0.TextStylePolicy = $4
+		$4.inheritsSet = null
+		$4.scope = text/x-cshtml-web
+		$0.HTMLFormattingPolicy = $5
+		$5.inheritsSet = null
+		$5.scope = text/x-cshtml-web
+		$0.TextStylePolicy = $6
+		$6.FileWidth = 80
+		$6.TabWidth = 2
+		$6.TabsToSpaces = True
+		$6.IndentWidth = 2
+		$6.NoTabsAfterNonTabs = True
+		$6.scope = text/x-html
+		$0.HTMLFormattingPolicy = $7
+		$7.FormatOnPaste = True
+		$7.XHTMLCodingStyle = True
+		$7.scope = text/x-html
+	EndGlobalSection
 EndGlobal
